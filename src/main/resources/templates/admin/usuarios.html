@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/base :: content">
+  <body>
+  <div th:fragment="content">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3>Usuarios</h3>
+    </div>
+
+    <div class="card card-rounded shadow-sm">
+      <div class="card-body table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th><th>Nombre</th><th>Email</th><th>Rol</th><th>Estado</th><th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="u : ${listaUsuarios}">
+              <td th:text="${u.id}"></td>
+              <td th:text="${u.nombre} + ' ' + ${u.apellido}"></td>
+              <td th:text="${u.email}"></td>
+              <td th:text="${u.rol}"></td>
+              <td><span th:text="${u.estado}"></span></td>
+              <td>
+                <a class="btn btn-sm btn-outline-primary" th:href="@{/admin/usuarios/{id}(id=${u.id})}">Ver</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  </body>
+</html>

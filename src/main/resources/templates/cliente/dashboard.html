@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/base :: content">
+  <body>
+  <div th:fragment="content">
+    <h3>Panel Cliente</h3>
+
+    <div class="row g-3">
+      <div class="col-md-8">
+        <div class="card card-rounded shadow-sm p-3">
+          <h5>Mis reservas</h5>
+          <p class="small text-muted">Ver y gestionar tus reservas.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-rounded shadow-sm p-3">
+          <h6>Notificaciones</h6>
+          <p class="small text-muted">Avisos recientes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

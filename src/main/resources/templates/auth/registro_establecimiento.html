@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/base :: content">
+  <body>
+  <div th:fragment="content">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card card-rounded shadow-sm">
+          <div class="card-body">
+            <h4 class="mb-3">Registro - Establecimiento</h4>
+
+            <form th:action="@{/auth/registro/establecimiento}" method="post" enctype="multipart/form-data">
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <label class="form-label">NIT</label>
+                  <input class="form-control" name="nit" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Nombre del establecimiento</label>
+                  <input class="form-control" name="razonSocial" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Teléfono</label>
+                  <input class="form-control" name="telefono" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Horario</label>
+                  <input class="form-control" name="horario">
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label">Dirección</label>
+                  <input class="form-control" name="direccion" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email</label>
+                  <input class="form-control" type="email" name="email" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Contraseña</label>
+                  <input class="form-control" type="password" name="password" required>
+                </div>
+
+                <div class="col-md-12">
+                  <label class="form-label">Adjuntar RUT (PDF)</label>
+                  <input class="form-control" type="file" name="rutFile" accept="application/pdf" required>
+                </div>
+              </div>
+
+              <div class="mt-3 d-grid">
+                <button class="btn btn-success">Enviar registro</button>
+              </div>
+            </form>
+
+            <div class="mt-3 small text-muted">Los establecimientos quedan pendientes hasta su verificación.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

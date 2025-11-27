@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+    th:replace="layout/base :: content(~{::body})">
+
+<body>
+
+<h2>Iniciar Sesión</h2>
+
+<form method="post" action="/login">
+    <label>Email</label>
+    <input type="email" name="username" required>
+
+    <label>Contraseña</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Ingresar</button>
+</form>
+
+<div th:if="${param.error}">
+    <p style="color:red">Credenciales incorrectas o cuenta no activa.</p>
+</div>
+
+<a href="/registro/cliente">Registrarse como Cliente</a>
+<a href="/registro/moderador">Registrarse como Moderador</a>
+<a href="/registro/establecimiento">Registrar Establecimiento</a>
+
+</body>
+</html>

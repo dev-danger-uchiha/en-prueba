@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/base :: content">
+  <body>
+  <div th:fragment="content">
+    <h4>Establecimientos pendientes</h4>
+
+    <div class="card card-rounded shadow-sm">
+      <div class="card-body table-responsive">
+        <table class="table table-hover">
+          <thead><tr><th>Nombre</th><th>Email</th><th>NIT</th><th>Estado</th><th>Acciones</th></tr></thead>
+          <tbody>
+            <tr th:each="e : ${establecimientos}">
+              <td th:text="${e.razonSocial}"></td>
+              <td th:text="${e.email}"></td>
+              <td th:text="${e.nit}"></td>
+              <td th:text="${e.estado}"></td>
+              <td>
+                <a class="btn btn-sm btn-outline-success" th:href="@{/moderador/establecimientos/{id}/aprobar(id=${e.id})}">Aprobar</a>
+                <a class="btn btn-sm btn-outline-danger" th:href="@{/moderador/establecimientos/{id}/rechazar(id=${e.id})}">Rechazar</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  </body>
+</html>

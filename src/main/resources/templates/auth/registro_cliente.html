@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/base :: content">
+  <body>
+  <div th:fragment="content">
+    <div class="row justify-content-center">
+      <div class="col-md-7">
+        <div class="card card-rounded shadow-sm">
+          <div class="card-body">
+            <h4 class="mb-3">Registro - Cliente</h4>
+
+            <form th:action="@{/auth/registro/cliente}" method="post">
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <label class="form-label">Nombre</label>
+                  <input class="form-control" name="nombre" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Apellido</label>
+                  <input class="form-control" name="apellido" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Teléfono</label>
+                  <input class="form-control" name="telefono">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Dirección</label>
+                  <input class="form-control" name="direccion">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email</label>
+                  <input class="form-control" type="email" name="email" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Contraseña</label>
+                  <input class="form-control" type="password" name="password" required>
+                </div>
+              </div>
+
+              <div class="mt-3 d-grid">
+                <button class="btn btn-primary">Crear cuenta</button>
+              </div>
+            </form>
+
+            <div class="mt-3 small text-muted">Los clientes se activan automáticamente.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
