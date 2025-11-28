@@ -6,7 +6,7 @@
 
 <h2>Iniciar Sesión</h2>
 
-<form method="post" action="/login">
+<form method="post" th:action="@{/auth/login}">
     <label>Email</label>
     <input type="email" name="username" required>
 
@@ -20,9 +20,9 @@
     <p style="color:red">Credenciales incorrectas o cuenta no activa.</p>
 </div>
 
-<a href="/registro/cliente">Registrarse como Cliente</a>
-<a href="/registro/moderador">Registrarse como Moderador</a>
-<a href="/registro/establecimiento">Registrar Establecimiento</a>
+<<a th:href="@{/auth/registro/cliente}">Registrarse como Cliente</a>
+<a th:href="@{/auth/registro/moderador}">Registrarse como Moderador</a>
+<a th:href="@{/auth/registro/establecimiento}">Registrar Establecimiento</a>
 
 </body>
 </html>
