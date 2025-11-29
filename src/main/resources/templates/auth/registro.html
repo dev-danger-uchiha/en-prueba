@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/base :: content">
+<html xmlns:th="http://www.thymeleaf.org">
   <body>
-  <div th:fragment="content">
+
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card card-rounded shadow-sm p-4">
@@ -9,8 +9,8 @@
           <p>Elige el tipo de cuenta que deseas crear:</p>
 
           <div class="d-flex gap-3 flex-wrap">
-            <a class="btn btn-outline-primary" th:href="@{/auth/registro/cliente}">Cliente</a>
-            <a class="btn btn-outline-secondary" th:href="@{/auth/registro/moderador}">Moderador</a>
+            <a class="btn btn-outline-primary" th:href="@{/auth/registro/moderador}">Moderador</a>
+            <a class="btn btn-outline-secondary" th:href="@{/auth/registro/cliente}">Cliente</a>
             <a class="btn btn-outline-success" th:href="@{/auth/registro/establecimiento}">Establecimiento</a>
           </div>
         </div>

@@ -1,28 +1,62 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org"
-    th:replace="layout/base :: content(~{::body})">
-
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
 
-<h2>Iniciar Sesión</h2>
+    <!-- Header directo -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">BudgetMap</a>
+        </div>
+    </nav>
 
-<form method="post" th:action="@{/auth/login}">
-    <label>Email</label>
-    <input type="email" name="username" required>
+    <!-- Contenido principal -->
+    <main class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4">Iniciar Sesión</h3>
+                        <form th:action="@{/auth/login}" method="post">
+                            <!-- Usuario -->
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Usuario</label>
+                                <input type="text" id="username" name="username" class="form-control" required>
+                            </div>
+                            <!-- Contraseña -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                            </div>
+                            <!-- Mensajes -->
+                            <div th:if="${mensaje}" class="alert alert-info" th:text="${mensaje}"></div>
+                            <div th:if="${param.error}" class="alert alert-danger">
+                                Usuario o contraseña incorrectos
+                            </div>
+                            <!-- Botón -->
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Entrar</button>
+                                <a th:href="@{/auth/registro}" class="btn btn-link mt-2">¿No tienes cuenta? Regístrate</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    <label>Contraseña</label>
-    <input type="password" name="password" required>
+    <!-- Footer directo -->
+    <footer class="bg-light text-center py-3 mt-5">
+        <p class="mb-0">&copy; 2025 BudgetMap - Todos los derechos reservados</p>
+    </footer>
 
-    <button type="submit">Ingresar</button>
-</form>
-
-<div th:if="${param.error}">
-    <p style="color:red">Credenciales incorrectas o cuenta no activa.</p>
-</div>
-
-<<a th:href="@{/auth/registro/cliente}">Registrarse como Cliente</a>
-<a th:href="@{/auth/registro/moderador}">Registrarse como Moderador</a>
-<a th:href="@{/auth/registro/establecimiento}">Registrar Establecimiento</a>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

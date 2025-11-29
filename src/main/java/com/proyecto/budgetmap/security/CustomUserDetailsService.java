@@ -2,6 +2,7 @@ package com.proyecto.budgetmap.security;
 
 import com.proyecto.budgetmap.models.Usuario;
 import com.proyecto.budgetmap.repositories.UsuarioRepository;
+import com.proyecto.budgetmap.models.enums.EstadoUsuario;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 

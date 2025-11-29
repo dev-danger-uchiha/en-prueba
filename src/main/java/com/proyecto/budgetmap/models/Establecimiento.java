@@ -20,7 +20,6 @@ public class Establecimiento {
     private String tipo;
     private String descripcion;
     private String ubicacion;
-    private String contacto;
     private String horarios;
 
     @Enumerated(EnumType.STRING)
