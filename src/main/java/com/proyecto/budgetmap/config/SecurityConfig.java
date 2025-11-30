@@ -23,11 +23,12 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/", "/home", "/lugares/**",
+                                "/", "/index", "/dashboard", "/lugares/**",
                                 "/auth/login",
                                 "/auth/registro",
                                 "/auth/registro/cliente",
                                 "/auth/registro/establecimiento",
+                                "/auth/registro/moderador",
                                 "/css/**", "/js/**")
                         .permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
@@ -37,11 +38,11 @@ public class SecurityConfig {
                         .anyRequest().authenticated())
                 .formLogin(login -> login
                         .loginPage("/auth/login")
-                        .defaultSuccessUrl("/home", true)
+                        .defaultSuccessUrl("/", true)
                         .permitAll())
                 .logout(logout -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/home")
+                        .logoutSuccessUrl("/")
                         .permitAll());
 
         return http.build();
@@ -55,5 +56,6 @@ public class SecurityConfig {
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
+
     }
 }
