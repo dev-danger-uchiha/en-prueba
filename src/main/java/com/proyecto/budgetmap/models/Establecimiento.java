@@ -12,14 +12,13 @@ public class Establecimiento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombreEstablecimiento;
+    private String razonSocial;
     private String nit;
     private String direccion;
     private String telefono;
     private String rutPdfUrl;
     private String tipo;
     private String descripcion;
-    private String ubicacion;
     private String horarios;
 
     @Enumerated(EnumType.STRING)

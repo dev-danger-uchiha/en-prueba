@@ -1,30 +1,162 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <body>
-  
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h3>Panel Admin</h3>
-      <div>
-        <a class="btn btn-outline-secondary" th:href="@{/admin/usuarios}">Gestionar usuarios</a>
-      </div>
-    
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-rounded { border-radius: 12px; }
+        h2 { font-weight: bold; }
+    </style>
+</head>
 
-    <div class="row g-3">
-      <div class="col-md-4">
-        <div class="card card-rounded shadow-sm p-3">
-          <h6>Usuarios pendientes</h6>
-          <h2 th:text="${usuariosPendientes}">0</h2>
-        </div>
-      </div>
+<body>
 
-      <div class="col-md-4">
-        <div class="card card-rounded shadow-sm p-3">
-          <h6>Usuarios activos</h6>
-          <h2 th:text="${usuariosActivos}">0</h2>
-        </div>
-      </div>
+<div class="container my-4">
+
+    <h2 class="mb-4">Panel Administrador</h2>
+
+    <!-- GESTIONAR USUARIOS -->
+    <div class="mb-3">
+        <a class="btn btn-outline-primary" th:href="@{/admin/usuarios}">Gestionar usuarios</a>
     </div>
 
-  </div>
-  </body>
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Usuarios pendientes</h4>
+                <h2 th:text="${usuariosPendientes}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Usuarios activos</h4>
+                <h2 th:text="${usuariosActivos}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Usuarios rechazados</h4>
+                <h2 th:text="${usuariosRechazados}">0</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- GESTIONAR ESTABLECIMIENTOS -->
+    <div class="mb-3">
+        <a class="btn btn-outline-primary" th:href="@{/admin/establecimientos}">Gestionar establecimientos</a>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Establecimientos pendientes</h4>
+                <h2 th:text="${establecimientosPendientes}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Establecimientos activos</h4>
+                <h2 th:text="${establecimientosActivos}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Establecimientos rechazados</h4>
+                <h2 th:text="${establecimientosRechazados}">0</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- GESTIONAR LUGARES -->
+    <div class="mb-3">
+        <a class="btn btn-outline-primary" th:href="@{/admin/lugares}">Gestionar lugares</a>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Lugares pendientes</h4>
+                <h2 th:text="${lugaresPendientes}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Lugares activos</h4>
+                <h2 th:text="${lugaresActivos}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Lugares rechazados</h4>
+                <h2 th:text="${lugaresRechazados}">0</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- GESTIONAR EVENTOS -->
+    <div class="mb-3">
+        <a class="btn btn-outline-primary" th:href="@{/admin/eventos}">Gestionar eventos</a>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Eventos pendientes</h4>
+                <h2 th:text="${eventosPendientes}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Eventos activos</h4>
+                <h2 th:text="${eventosActivos}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Eventos rechazados</h4>
+                <h2 th:text="${eventosRechazados}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>Eventos finalizados</h4>
+                <h2 th:text="${eventosFinalizados}">0</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- GESTIONAR PQRS -->
+    <div class="mb-3">
+        <a class="btn btn-outline-primary" th:href="@{/admin/pqrs}">Gestionar PQRS</a>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>PQRS pendientes</h4>
+                <h2 th:text="${PQRSPendientes}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>PQRS activas</h4>
+                <h2 th:text="${PQRSActivas}">0</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-rounded shadow-sm p-3">
+                <h4>PQRS cerradas</h4>
+                <h2 th:text="${PQRSCerradas}">0</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
 </html>

@@ -14,11 +14,17 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Rol rol;
+
+    private String nit;
+    private String razonSocial;
+
     private String nombre;
     private String apellido;
     private String direccion;
-    private String nit;
-    private String razonSocial;
+
     private String horario;
     private String telefono;
 
@@ -29,10 +35,6 @@ public class Usuario {
 
     @Column(nullable = false)
     private String password;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Rol rol;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
