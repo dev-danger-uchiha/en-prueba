@@ -1,13 +1,26 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head></head>
-<body>
 <th:block th:fragment="header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/}">BUDGETMAP</a>
-        </div>
-    </nav>
+  <nav>
+    <a href="/">
+      <img th:src="@{/images/logo.png}" alt="Logo" style="width:70px;height:70px;">
+      <span>BUDGETMAP</span>
+    </a>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/eventos">Eventos</a></li>
+      <li><a href="/lugares">Lugares</a></li>
+      <li><a href="/establecimientos">Establecimientos</a></li>
+    </ul>
+    <div>
+      <div sec:authorize="isAnonymous()">
+        <a href="/login">Iniciar sesión</a>
+        <a href="/auth/registro">Registrarse</a>
+      </div>
+      <div sec:authorize="isAuthenticated()">
+        Hola, <span sec:authentication="name"></span>
+        <form th:action="@{/logout}" method="post">
+          <button type="submit">Cerrar sesión</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 </th:block>
-</body>
-</html>

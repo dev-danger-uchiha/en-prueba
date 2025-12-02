@@ -1,6 +1,7 @@
 package com.proyecto.budgetmap.models;
 
 import com.proyecto.budgetmap.models.enums.EstadoEstablecimiento;
+import com.proyecto.budgetmap.models.enums.TipoEstablecimiento;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,7 +18,10 @@ public class Establecimiento {
     private String direccion;
     private String telefono;
     private String rutPdfUrl;
-    private String tipo;
+
+    @Enumerated(EnumType.STRING)
+    private TipoEstablecimiento tipoE = TipoEstablecimiento.RESTAURANTE;
+
     private String descripcion;
     private String horarios;
 

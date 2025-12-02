@@ -16,7 +16,7 @@ public class Lugar {
     private String nombre;
 
     @Enumerated(EnumType.STRING)
-    private TipoLugar tipoLugar;
+    private TipoLugar tipoL = TipoLugar.PARQUE;
 
     private String descripcion;
     private String ciudad;

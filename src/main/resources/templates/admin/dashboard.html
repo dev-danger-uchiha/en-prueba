@@ -57,8 +57,8 @@
         </div>
         <div class="col-md-4">
             <div class="card card-rounded shadow-sm p-3">
-                <h4>Establecimientos activos</h4>
-                <h2 th:text="${establecimientosActivos}">0</h2>
+                <h4>Establecimientos aprobados</h4>
+                <h2 th:text="${establecimientosAprobados}">0</h2>
             </div>
         </div>
         <div class="col-md-4">
@@ -79,23 +79,16 @@
         <div class="col-md-4">
             <div class="card card-rounded shadow-sm p-3">
                 <h4>Lugares pendientes</h4>
-                <h2 th:text="${lugaresPendientes}">0</h2>
+                <h2 th:text="${lugaresBorradores}">0</h2>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card card-rounded shadow-sm p-3">
-                <h4>Lugares activos</h4>
-                <h2 th:text="${lugaresActivos}">0</h2>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card card-rounded shadow-sm p-3">
-                <h4>Lugares rechazados</h4>
-                <h2 th:text="${lugaresRechazados}">0</h2>
+                <h4>Lugares publicados</h4>
+                <h2 th:text="${lugaresPublicados}">0</h2>
             </div>
         </div>
     </div>
-
 
     <!-- GESTIONAR EVENTOS -->
     <div class="mb-3">

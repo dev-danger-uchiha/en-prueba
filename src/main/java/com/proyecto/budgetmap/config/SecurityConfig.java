@@ -39,8 +39,8 @@ public class SecurityConfig {
                     response.sendRedirect("/admin/dashboard");
                 } else if (roles.contains("MODERADOR")) {
                     response.sendRedirect("/moderador/dashboard");
-                } else if (roles.contains("ESTABLECIMIENTO")) {
-                    response.sendRedirect("/establecimiento/dashboard");
+                } else if (roles.contains("PROPIETARIO_ESTABLECIMIENTO")) {
+                    response.sendRedirect("/propietario_establecimiento/dashboard");
                 } else if (roles.contains("CLIENTE")) {
                     response.sendRedirect("/cliente/dashboard");
                 } else {

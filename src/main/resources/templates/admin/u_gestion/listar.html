@@ -11,8 +11,9 @@
 
     <h2 class="mb-4">Gestión de usuarios</h2>
 
-    <form class="row g-3 mb-4" method="get" th:action="@{/admin/usuarios}">
-    <div class="col-md-4">
+    <form method="get" th:action="@{/admin/usuarios}" class="row g-3 mb-4"  >
+        <div class="col-md-4">
+
         <input type="text" class="form-control" name="search"
             placeholder="Buscar por nombre o email"
             th:value="${param.search}">
@@ -23,7 +24,7 @@
             <option value="ADMIN" th:selected="${param.rol == 'ADMIN'}">Admin</option>
             <option value="MODERADOR" th:selected="${param.rol == 'MODERADOR'}">Moderador</option>
             <option value="CLIENTE" th:selected="${param.rol == 'CLIENTE'}">Cliente</option>
-            <option value="ESTABLECIMIENTO" th:selected="${param.rol == 'ESTABLECIMIENTO'}">Establecimiento</option>
+            <option value="PROPIETARIO_ESTABLECIMIENTO" th:selected="${param.rol == 'PROPIETARIO_ESTABLECIMIENTO'}">Propietario Establecimiento</option>
         </select>
     </div>
 
@@ -75,7 +76,6 @@
                 <th>Acciones</th>
             </tr>
             </thead>
-
             <tbody>
             <tr th:each="u : ${listaUsuarios}">
                 <td th:text="${u.id}">1</td>

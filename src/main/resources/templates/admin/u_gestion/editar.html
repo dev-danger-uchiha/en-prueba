@@ -34,7 +34,7 @@
             <select name="rol" class="form-select">
                 <option value="ADMIN" th:selected="${usuario.rol.toString() == 'ADMIN'}">Admin</option>
                 <option value="MODERADOR" th:selected="${usuario.rol.toString() == 'MODERADOR'}">Moderador</option>
-                <option value="ESTABLECIMIENTO" th:selected="${usuario.rol.toString() == 'ESTABLECIMIENTO'}">Establecimiento</option>
+                <option value="PROPIETARIO_ESTABLECIMIENTO" th:selected="${usuario.rol.toString() == 'PROPIETARIO_ESTABLECIMIENTO'}">Propietario Establecimiento</option>
                 <option value="CLIENTE" th:selected="${usuario.rol.toString() == 'CLIENTE'}">Cliente</option>
             </select>
         </div>

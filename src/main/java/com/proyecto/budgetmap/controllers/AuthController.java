@@ -98,7 +98,7 @@ public class AuthController {
         return "auth/login";
     }
 
-    // REGISTRO ESTABLECIMIENTO
+    // REGISTRO PROPIETARIO ESTABLECIMIENTO
     @GetMapping("/registro/establecimiento")
     public String registroEstablecimientoForm() {
         return "auth/registro_establecimiento";
@@ -125,7 +125,7 @@ public class AuthController {
         nuevo.setEmail(email);
         nuevo.setPassword(password);
         nuevo.setHorario(horario);
-        nuevo.setRol(Rol.ESTABLECIMIENTO);
+        nuevo.setRol(Rol.PROPIETARIO_ESTABLECIMIENTO);
         nuevo.setEstado(EstadoUsuario.PENDIENTE); // ⭐ establecimiento pendiente de verificación
 
         nuevo.setRutPath("pendiente");
@@ -133,7 +133,7 @@ public class AuthController {
         usuarioService.registrar(nuevo);
 
         model.addAttribute("mensaje",
-                "Establecimiento registrado. Tu cuenta será verificada antes de activarse.");
+                "PropietarioEstablecimiento registrado. Tu cuenta será verificada antes de activarse.");
 
         return "auth/login";
     }
