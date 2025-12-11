@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title} ?: 'Moderador - BudgetMap'">Moderador - BudgetMap</title>
+
+    <!-- CSS GENERALES -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/forms.css}">
+    <link rel="stylesheet" th:href="@{/css/establecimiento.css}">
+    <link rel="stylesheet" th:href="@{/css/moderador.css}">
+    <link rel="stylesheet" th:href="@{/css/light.css}">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div th:replace="layouts/header :: header"></div>
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="container mt-4">
+    <div th:replace="${content}"></div>
+</div>
+
+<!-- FOOTER -->
+<div th:replace="layouts/footer :: footer"></div>
+
+</body>
+</html>

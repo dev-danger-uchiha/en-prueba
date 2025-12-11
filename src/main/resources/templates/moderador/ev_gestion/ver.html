@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalle Evento</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container mt-4">
+
+    <h2 th:text="${evento.titulo}"></h2>
+
+    <p><strong>Tipo:</strong> <span th:text="${evento.tipoE}"></span></p>
+    <p><strong>Lugar:</strong> <span th:text="${evento.lugar.nombre}"></span></p>
+    <p><strong>Inicio:</strong> <span th:text="${evento.fechaInicio}"></span></p>
+    <p><strong>Fin:</strong> <span th:text="${evento.fechaFin}"></span></p>
+
+    <h4>Descripción</h4>
+    <p th:text="${evento.descripcion}"></p>
+
+    <a th:href="@{/moderador/eventos}" class="btn btn-secondary mt-3">Volver</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+/* ==========================================
+   BUDGETMAP - FORMULARIOS PREMIUM
+   ========================================== */
+
+body.light-theme {
+    background: linear-gradient(180deg, #FAFEFF 0%, #F3F6F9 100%);
+}
+
+/* CONTENEDOR GENERAL */
+.form-wrapper {
+    max-width: 480px;
+    margin: 40px auto;
+}
+
+/* CARD PREMIUM */
+.form-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+    transition: .3s;
+}
+
+.form-card:hover {
+    transform: translateY(-4px);
+}
+
+/* TITULOS */
+.form-card h3,
+.form-card h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+/* SUBTEXTO */
+.form-subtext {
+    font-size: .9rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* INPUTS PREMIUM */
+.form-control {
+    padding: 13px 16px;
+    border-radius: var(--radius);
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    transition: border .2s, box-shadow .2s;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(50, 212, 142, 0.25);
+}
+
+/* LABELS */
+.form-label {
+    font-size: .95rem;
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* BOTONES PREMIUM */
+.btn-primary,
+.btn-success,
+.btn-secondary {
+    border-radius: var(--radius);
+    font-weight: 600;
+    padding: 12px 20px;
+    transition: .2s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #27bd78;
+}
+
+/* LINK DEBAJO DEL BOTÓN */
+.form-link {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.form-link a {
+    font-size: .93rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.form-link a:hover {
+    color: #26a96c;
+}
+
+/* SEPARADORES */
+.section-title {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+}
+
+/* TARJETAS DE SELECCIÓN (Moderador / Cliente / Establecimiento) */
+.option-card {
+    border: 1px solid #e5e7eb;
+    border-radius: var(--radius);
+    padding: 18px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    background: var(--white);
+    text-align: center;
+    font-weight: 600;
+}
+
+.option-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+    transform: translateY(-3px);
+}
+
+/* ALERTAS / MENSAJES */
+.alert {
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    font-size: .9rem;
+}
+
+/* ARCHIVOS (RUT PDF) */
+input[type="file"] {
+    padding: 12px;
+    border-radius: var(--radius);
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+}
+
+input[type="file"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(50, 212, 142, 0.25);
+}

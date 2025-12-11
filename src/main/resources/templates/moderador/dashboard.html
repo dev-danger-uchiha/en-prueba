@@ -1,26 +1,42 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout/base :: content">
-  <body>
-  <div th:fragment="content">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h3>Panel Moderador</h3>
-      <a class="btn btn-primary" th:href="@{/moderador/lugares/crear}">Crear Lugar</a>
-    </div>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Moderador - Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
 
-    <div class="row g-3">
-      <div class="col-md-6">
-        <div class="card card-rounded shadow-sm p-3">
-          <h6>Mis lugares</h6>
-          <p class="small text-muted">Lista de lugares que administras</p>
+<div class="container mt-4">
+    <h2>Panel del Moderador</h2>
+
+    <div class="row mt-4">
+
+        <div class="col-md-4">
+            <div class="card p-3 text-center">
+                <h4 th:text="${lugaresCreados}">0</h4>
+                <p>Lugares creados</p>
+                <a th:href="@{/moderador/lugares}" class="btn btn-primary">Gestionar</a>
+            </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card card-rounded shadow-sm p-3">
-          <h6>Eventos</h6>
-          <p class="small text-muted">Administra eventos por lugar</p>
+
+        <div class="col-md-4">
+            <div class="card p-3 text-center">
+                <h4 th:text="${eventosActivos}">0</h4>
+                <p>Eventos registrados</p>
+                <a th:href="@{/moderador/eventos}" class="btn btn-primary">Gestionar</a>
+            </div>
         </div>
-      </div>
+
+        <div class="col-md-4">
+            <div class="card p-3 text-center">
+                <h4 th:text="${establecimientosPendientes}">0</h4>
+                <p>Establecimientos pendientes</p>
+                <a th:href="@{/moderador/establecimientos}" class="btn btn-warning">Revisar</a>
+            </div>
+        </div>
+
     </div>
-  </div>
-  </body>
+</div>
+
+</body>
 </html>

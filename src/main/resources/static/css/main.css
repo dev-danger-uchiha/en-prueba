@@ -1,0 +1,104 @@
+/* ===============================
+   BUDGETMAP - MAIN GLOBAL STYLE
+   =============================== */
+
+:root {
+    --primary: #32D48E;
+    --text-dark: #0F1B2B;
+    --text-muted: #6b7280;
+    --bg-light: #F5F7FA;
+    --white: #FFFFFF;
+
+    --radius: 14px;
+    --shadow-soft: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* TITULOS con POPPINS */
+h1, h2, h3, .fw-bold {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* LINKS */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: .8;
+    transition: 0.2s;
+}
+
+/* BOTONES */
+.btn-success {
+    background-color: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
+}
+
+.btn-success:hover {
+    background-color: #2abb79 !important;
+}
+
+.btn-outline-success {
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--primary) !important;
+    color: white !important;
+}
+
+/* CARDS BASE */
+.card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+}
+
+.shadow-soft {
+    box-shadow: var(--shadow-soft);
+}
+
+/* ICONOS CATEGORÍAS */
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background: rgba(50, 212, 142, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 28px;
+}
+
+/* SEARCH BAR */
+.input-group-lg .form-control {
+    padding: 16px 22px;
+    font-size: 1.1rem;
+    border: none;
+}
+
+.input-group-lg .btn {
+    font-size: 1.1rem;
+}
+
+/* OBJETO-COVER */
+.object-cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}

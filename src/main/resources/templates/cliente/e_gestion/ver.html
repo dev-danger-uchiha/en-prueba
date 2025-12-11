@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layouts/cliente.layout :: layout(
+        pageTitle='Detalle del Establecimiento',
+        content='this :: content'
+      )">
+
+<div th:fragment="content">
+
+    <h2 th:text="${establecimiento.razonSocial}"></h2>
+
+    <p><strong>NIT:</strong> <span th:text="${establecimiento.nit}"></span></p>
+    <p><strong>Dirección:</strong> <span th:text="${establecimiento.direccion}"></span></p>
+    <p><strong>Teléfono:</strong> <span th:text="${establecimiento.telefono}"></span></p>
+    <p th:text="${establecimiento.descripcion}"></p>
+
+</div>
+
+</html>

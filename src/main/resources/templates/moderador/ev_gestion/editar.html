@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Evento</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container mt-4">
+
+    <h2>Editar Evento</h2>
+
+    <form th:action="@{/moderador/eventos/crear}" th:object="${evento}" method="post">
+
+        <div class="mb-3">
+            <label>Título</label>
+            <input th:field="*{titulo}" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Tipo de Evento</label>
+            <select th:field="*{tipoE}" class="form-select">
+                <option th:each="t : ${tipos}" th:value="${t}" th:text="${t}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Lugar</label>
+            <select th:field="*{lugar}" class="form-select">
+                <option th:each="l : ${lugares}" th:value="${l}" th:text="${l.nombre}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Fecha Inicio</label>
+            <input type="date" th:field="*{fechaInicio}" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Fecha Fin</label>
+            <input type="date" th:field="*{fechaFin}" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Descripción</label>
+            <textarea th:field="*{descripcion}" class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-success">Guardar</button>
+
+    </form>
+
+</div>
+</body>
+</html>

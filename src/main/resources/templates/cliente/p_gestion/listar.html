@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layouts/cliente.layout :: layout(
+        pageTitle='Mis PQRS',
+        content='this :: content'
+      )">
+
+<div th:fragment="content">
+
+    <h2>Mis PQRS</h2>
+
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr>
+            <th>Asunto</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="p : ${pqrsList}">
+            <td th:text="${p.asunto}"></td>
+            <td th:text="${p.estado}"></td>
+            <td>
+                <a th:href="@{'/cliente/pqrs/' + ${p.id}}" class="btn btn-primary btn-sm">Ver</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</html>

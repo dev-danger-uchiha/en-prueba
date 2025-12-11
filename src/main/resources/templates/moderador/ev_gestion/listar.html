@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Eventos - Moderador</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container mt-4">
+
+    <h2>Gestión de Eventos</h2>
+
+    <div class="text-end mb-3">
+        <a th:href="@{/moderador/eventos/crear}" class="btn btn-success">Crear Evento</a>
+    </div>
+
+    <form method="get" class="row mb-3">
+        <div class="col-md-4">
+            <input name="search" th:value="${search}" class="form-control" placeholder="Buscar...">
+        </div>
+
+        <div class="col-md-4">
+            <select name="tipo" class="form-select">
+                <option value="">Tipo</option>
+                <option th:each="t : ${tipos}" th:value="${t}" th:text="${t}"
+                        th:selected="${t.toString() == tipo}"></option>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100">Filtrar</button>
+        </div>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Título</th>
+            <th>Lugar</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="e : ${listaEventos}">
+            <td th:text="${e.titulo}"></td>
+            <td th:text="${e.lugar.nombre}"></td>
+            <td th:text="${e.fechaInicio}"></td>
+            <td th:text="${e.fechaFin}"></td>
+
+            <td>
+                <a th:href="@{|/moderador/eventos/${e.id}|}" class="btn btn-info btn-sm">Ver</a>
+                <a th:href="@{|/moderador/eventos/${e.id}/editar|}" class="btn btn-primary btn-sm">Editar</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+</body>
+</html>

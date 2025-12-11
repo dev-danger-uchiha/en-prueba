@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layouts/cliente.layout :: layout(
+        pageTitle='Eventos',
+        content='this :: content'
+      )">
+
+<div th:fragment="content">
+
+    <h2>Eventos Disponibles</h2>
+
+    <div class="row mt-3">
+        <div class="col-md-4" th:each="ev : ${eventos}">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 th:text="${ev.titulo}"></h5>
+                    <p th:text="${ev.descripcion}"></p>
+                    <a th:href="@{'/cliente/eventos/' + ${ev.id}}"
+                       class="btn btn-primary btn-sm">Ver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</html>

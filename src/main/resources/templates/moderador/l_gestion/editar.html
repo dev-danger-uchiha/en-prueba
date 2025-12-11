@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Lugar</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container mt-4">
+
+    <h2>Editar Lugar</h2>
+
+    <form th:action="@{|/moderador/lugares/${lugar.id}/editar|}"
+          th:object="${lugar}" method="post">
+
+        <div class="mb-3">
+            <label>Nombre</label>
+            <input th:field="*{nombre}" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Tipo</label>
+            <select th:field="*{tipoL}" class="form-select">
+                <option th:each="t : ${tipos}" th:value="${t}" th:text="${t}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Ciudad</label>
+            <input th:field="*{ciudad}" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Dirección</label>
+            <input th:field="*{direccion}" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Descripción</label>
+            <textarea th:field="*{descripcion}" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Estado</label>
+            <select th:field="*{estado}" class="form-select">
+                <option th:each="e : ${estados}" th:value="${e}" th:text="${e}"></option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary">Actualizar</button>
+
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Establecimientos Pendientes</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+<div class="container mt-4">
+
+    <h2>Establecimientos Pendientes</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Razón Social</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="e : ${pendientes}">
+            <td th:text="${e.razonSocial}"></td>
+            <td th:text="${e.direccion}"></td>
+            <td th:text="${e.telefono}"></td>
+
+            <td>
+                <form th:action="@{|/moderador/establecimientos/${e.id}/aprobar|}" method="post" style="display:inline-block">
+                    <button class="btn btn-success btn-sm">Aprobar</button>
+                </form>
+
+                <form th:action="@{|/moderador/establecimientos/${e.id}/rechazar|}" method="post" style="display:inline-block">
+                    <button class="btn btn-danger btn-sm">Rechazar</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

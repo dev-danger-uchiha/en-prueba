@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title} ?: 'Admin - BudgetMap'">Admin - BudgetMap</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/light.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+
+<body class="dark-theme d-flex">
+
+    <!-- SIDEBAR -->
+    <aside th:insert="~{layouts/sidebar-admin :: sidebar}"></aside>
+
+    <!-- CONTENT AREA -->
+    <main class="admin-content flex-grow-1 p-4">
+        <div th:fragment="content">
+            <!-- Aquí se insertará el contenido dinámico -->
+        </div>
+    </main>
+
+</body>
+</html>

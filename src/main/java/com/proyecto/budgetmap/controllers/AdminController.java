@@ -258,7 +258,7 @@ public class AdminController {
         return usuarios;
     }
     /////////////////////////////////////////////////////////
-    // GESTIÓN DE ESTABLECIMIENTOS (MISMA ESTRUCTURA QUE USUARIOS)
+    // GESTIÓN DE ESTABLECIMIENTOS
     /////////////////////////////////////////////////////////
 
     @GetMapping("/establecimientos")

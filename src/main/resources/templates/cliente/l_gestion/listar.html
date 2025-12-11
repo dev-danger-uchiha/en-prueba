@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+        th:replace="layouts/cliente.layout :: layout(
+        pageTitle='Lugares',
+        content='this :: content'
+        )">
+
+<div th:fragment="content">
+
+    <h2>Lugares Disponibles</h2>
+
+    <div class="row mt-3">
+        <div class="col-md-4" th:each="l : ${lugares}">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 th:text="${l.nombre}"></h5>
+                    <p th:text="${l.descripcion}"></p>
+                    <a th:href="@{'/cliente/lugares/' + ${l.id}}" class="btn btn-primary btn-sm">Ver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</html>

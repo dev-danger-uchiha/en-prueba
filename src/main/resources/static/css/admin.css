@@ -1,0 +1,33 @@
+/* SIDEBAR ADMIN */
+.admin-sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: #151a22;
+    color: white;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.35);
+    border-right: 1px solid #222;
+}
+
+.admin-sidebar .nav-link {
+    color: #c9d1d9;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: .2s;
+}
+
+.admin-sidebar .nav-link:hover {
+    background: #1f2733;
+    color: var(--primary);
+}
+
+/* CONTENT AREA */
+.admin-content {
+    background: #0f141b;
+    color: #e5e7eb;
+    min-height: 100vh;
+}
+
+.admin-content h1, 
+.admin-content h2 {
+    color: white;
+}
