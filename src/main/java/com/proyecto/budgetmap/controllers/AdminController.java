@@ -1,5 +1,6 @@
 package com.proyecto.budgetmap.controllers;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ public class AdminController {
     private final EventoRepository eventoRepository;
     private final PqrsRepository pqrsRepository;
     private final ReservaRepository reservaRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public AdminController(
             UsuarioRepository usuarioRepository,
@@ -30,7 +32,8 @@ public class AdminController {
             LugarRepository lugarRepository,
             EventoRepository eventoRepository,
             PqrsRepository pqrsRepository,
-            ReservaRepository reservaRepository) {
+            ReservaRepository reservaRepository,
+            PasswordEncoder passwordEncoder) {
 
         this.usuarioRepository = usuarioRepository;
         this.establecimientoRepository = establecimientoRepository;
@@ -38,6 +41,7 @@ public class AdminController {
         this.eventoRepository = eventoRepository;
         this.pqrsRepository = pqrsRepository;
         this.reservaRepository = reservaRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     // DASHBOARD PRINCIPAL
@@ -62,14 +66,14 @@ public class AdminController {
         model.addAttribute("lugaresPublicados",
                 lugarRepository.countByEstado(EstadoLugar.PUBLICADO));
 
-        // model.addAttribute("eventosPendientes",
-        // eventoRepository.countByEstado(EstadoEvento.PENDIENTE));
-        // model.addAttribute("eventosActivos",
-        // eventoRepository.countByEstado(EstadoEvento.ACTIVO));
-        // model.addAttribute("eventosRechazados",
-        // eventoRepository.countByEstado(EstadoEvento.RECHAZADO));
-        // model.addAttribute("eventosFinalizados",
-        // eventoRepository.countByEstado(EstadoEvento.FINALIZADO));
+        model.addAttribute("eventosPendientes",
+                eventoRepository.countByEstado(EstadoEvento.PENDIENTE));
+        model.addAttribute("eventosActivos",
+                eventoRepository.countByEstado(EstadoEvento.ACTIVO));
+        model.addAttribute("eventosRechazados",
+                eventoRepository.countByEstado(EstadoEvento.RECHAZADO));
+        model.addAttribute("eventosFinalizados",
+                eventoRepository.countByEstado(EstadoEvento.FINALIZADO));
 
         // model.addAttribute("PQRSPendientes",
         // pqrsRepository.countByEstado(EstadoPqrs.PENDIENTE));
@@ -184,8 +188,7 @@ public class AdminController {
     }
 
     @PostMapping("/usuarios/{id}/editar")
-    public String actualizarUsuario(
-            @PathVariable Long id,
+    public String actualizarUsuario(@PathVariable Long id,
             @ModelAttribute("usuario") Usuario datos) {
 
         Usuario usuario = usuarioRepository.findById(id)
@@ -195,6 +198,9 @@ public class AdminController {
         usuario.setEmail(datos.getEmail());
         usuario.setRol(datos.getRol());
         usuario.setEstado(datos.getEstado());
+
+        // NO tocar contraseña, no editar, no reemplazar
+        // usuario.setPassword(...);
 
         usuarioRepository.save(usuario);
 
@@ -221,7 +227,9 @@ public class AdminController {
 
     @PostMapping("/usuarios/crear")
     public String crearUsuario(@ModelAttribute Usuario usuario) {
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         usuarioRepository.save(usuario);
+
         return "redirect:/admin/usuarios";
     }
 
