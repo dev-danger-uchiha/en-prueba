@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,7 +25,6 @@ import java.io.IOException;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    // Handler para redirigir por rol
     @Bean
     public AuthenticationSuccessHandler successHandler() {
         return new AuthenticationSuccessHandler() {
@@ -40,7 +40,7 @@ public class SecurityConfig {
                 } else if (roles.contains("MODERADOR")) {
                     response.sendRedirect("/moderador/dashboard");
                 } else if (roles.contains("PROPIETARIO_ESTABLECIMIENTO")) {
-                    response.sendRedirect("/propietario_establecimiento/dashboard");
+                    response.sendRedirect("/establecimiento/dashboard");
                 } else if (roles.contains("CLIENTE")) {
                     response.sendRedirect("/cliente/dashboard");
                 } else {
@@ -54,22 +54,56 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .csrf(csrf -> csrf.disable())
+                // Habilitar CSRF con configuración segura
+                .csrf(csrf -> csrf
+                    .ignoringRequestMatchers("/api/**") // Solo para APIs REST si las tienes
+                )
+                
+                // Configuración de autorización
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/index", "/auth/**", "/css/**", "/js/**").permitAll()
+                        // Rutas públicas
+                        .requestMatchers(
+                            "/", 
+                            "/index", 
+                            "/auth/**", 
+                            "/css/**", 
+                            "/js/**",
+                            "/images/**",
+                            "/error"
+                        ).permitAll()
+                        
+                        // Rutas por rol
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/moderador/**").hasRole("MODERADOR")
                         .requestMatchers("/establecimiento/**").hasRole("PROPIETARIO_ESTABLECIMIENTO")
                         .requestMatchers("/cliente/**").hasRole("CLIENTE")
-                        .anyRequest().authenticated())
+                        
+                        // Cualquier otra petición requiere autenticación
+                        .anyRequest().authenticated()
+                )
+                
+                // Configuración de login
                 .formLogin(login -> login
                         .loginPage("/auth/login")
+                        .loginProcessingUrl("/auth/login")
                         .successHandler(successHandler())
-                        .permitAll())
+                        .failureUrl("/auth/login?error=true")
+                        .permitAll()
+                )
+                
+                // Configuración de logout
                 .logout(logout -> logout
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/")
-                        .permitAll());
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
+                        .logoutSuccessUrl("/?logout=true")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .permitAll()
+                )
+                
+                // Manejo de acceso denegado
+                .exceptionHandling(ex -> ex
+                    .accessDeniedPage("/auth/login?error=access-denied")
+                );
 
         return http.build();
     }

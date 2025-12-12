@@ -1,7 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <div th:fragment="footer">
-    <footer class="bg-white text-center py-4 mt-5 border-top">
-        <p class="mb-0 text-muted">
-            © 2025 BudgetMap — Hecho con ❤️
-        </p>
+    <footer class="bg-white border-top">
+        <div class="container py-5">
+            <div class="row g-4">
+                
+                <!-- Columna 1: Logo y descripción -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold text-primary mb-3">
+                        <span style="font-size: 1.5rem;">🗺️</span> BUDGETMAP
+                    </h5>
+                    <p class="text-muted">
+                        Descubre lugares increíbles, eventos culturales y experiencias únicas cerca de ti.
+                    </p>
+                    <!-- Redes sociales -->
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm rounded-circle" style="width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Enlaces rápidos -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Explorar</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="#" class="text-muted text-decoration-none">
+                                <i class="bi bi-chevron-right small"></i> Lugares
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-muted text-decoration-none">
+                                <i class="bi bi-chevron-right small"></i> Eventos
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-muted text-decoration-none">
+                                <i class="bi bi-chevron-right small"></i> Establecimientos
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-muted text-decoration-none">
+                                <i class="bi bi-chevron-right small"></i> Categorías
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Recursos -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Recursos</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="#" class="text-muted text-decoration-none">
+                                <i class="bi bi-chevron-right small"></i> Acerca de nosotros
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-muted text-decoration-none">
+                                <i class="bi bi-chevron-right small"></i> Cómo funciona
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-muted text-decoration-none">
+                                <i class="bi bi-chevron-right small"></i> Blog
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-muted text-decoration-none">
+                                <i class="bi bi-chevron-right small"></i> Ayuda
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Contacto</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2">
+                            <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                            Bogotá, Colombia
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-envelope-fill text-primary me-2"></i>
+                            info@budgetmap.com
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-telephone-fill text-primary me-2"></i>
+                            +57 (1) 234-5678
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Separador -->
+            <hr class="my-4">
+
+            <!-- Copyright y enlaces legales -->
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted mb-0">
+                        © 2025 BudgetMap. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-muted text-decoration-none me-3">Términos</a>
+                    <a href="#" class="text-muted text-decoration-none me-3">Privacidad</a>
+                    <a href="#" class="text-muted text-decoration-none">Cookies</a>
+                </div>
+            </div>
+
+        </div>
     </footer>
 </div>
+
+</html>
